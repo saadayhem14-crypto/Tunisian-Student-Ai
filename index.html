@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>TunisIA Student Hub</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#E70013">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@300;400;700;800&family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              tunisia: {
+                red: '#E70013',
+                dark: '#020617',
+              }
+            },
+            fontFamily: {
+              sans: ['Cairo', 'sans-serif'],
+              cairo: ['Cairo', 'sans-serif'],
+              almarai: ['Almarai', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        :root {
+            --tunisia-red: #E70013;
+        }
+        body { 
+            background-color: #020617;
+            color: #f8fafc;
+            margin: 0;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        .glass-premium {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .crimson-shadow {
+            box-shadow: 0 10px 40px -10px rgba(231, 0, 19, 0.4);
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(231, 0, 19, 0.3);
+            border-radius: 10px;
+        }
+
+        /* --- Dynamic Agent Backgrounds --- */
+        .dynamic-bg-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.12;
+            overflow: hidden;
+            transition: all 1s ease;
+        }
+
+        /* Chef Code: Code Matrix / Syntax Grid */
+        .bg-coding {
+            background-image: 
+                linear-gradient(rgba(34, 197, 94, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 197, 94, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: coding-pulse 10s linear infinite;
+        }
+        @keyframes coding-pulse {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 300px; }
+        }
+
+        /* L-Akhas: Frosted Notebook / Dotted Paper */
+        .bg-resume {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+            background-size: 25px 25px;
+            animation: resume-float 20s ease-in-out infinite;
+        }
+        @keyframes resume-float {
+            0%, 100% { transform: scale(1) translate(0, 0); }
+            50% { transform: scale(1.05) translate(10px, -10px); }
+        }
+
+        /* Organizer: Calendar Grid / Productivity Timeline */
+        .bg-organizer {
+            background-image: 
+                linear-gradient(rgba(231, 0, 19, 0.15) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(231, 0, 19, 0.15) 2px, transparent 2px);
+            background-size: 80px 80px;
+            animation: organizer-slide 30s linear infinite;
+        }
+        @keyframes organizer-slide {
+            0% { background-position: 0 0; }
+            100% { background-position: 80px 80px; }
+        }
+
+        /* Dashboard / LMS: Floating Icons */
+        .bg-dashboard-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            opacity: 0.08;
+        }
+        .floating-icon {
+            font-size: 4rem;
+            animation: float-random 15s ease-in-out infinite;
+            filter: blur(1px);
+        }
+        @keyframes float-random {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -50px) rotate(10deg); }
+            66% { transform: translate(-20px, 40px) rotate(-10deg); }
+        }
+
+        /* Enhanced Flashcard Flip CSS */
+        .flashcard-container {
+            perspective: 1500px;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .flashcard-container:active {
+            transform: scale(0.96);
+        }
+
+        .preserve-3d {
+            transform-style: preserve-3d;
+        }
+
+        .backface-hidden {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .flashcard-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform-style: preserve-3d;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+        }
+
+        .flipped {
+            transform: rotateY(180deg);
+            box-shadow: 0 10px 30px -10px rgba(231, 0, 19, 0.2);
+        }
+
+        .rotate-y-180 {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .prose { text-align: right; color: #cbd5e1; }
+        .prose pre { direction: ltr; text-align: left; background: #0f172a !important; padding: 1.5rem; border-radius: 1.5rem; border: 1px solid rgba(255,255,255,0.05); }
+        .prose blockquote { border-right: 4px solid var(--tunisia-red); border-left: 0; padding-right: 1.5rem; font-style: italic; }
+        
+        @media (max-width: 1024px) {
+            .lg\:mr-80 { margin-right: 0 !important; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0",
+    "react-markdown": "https://esm.sh/react-markdown@^9.0.1",
+    "remark-gfm": "https://esm.sh/remark-gfm@^4.0.0",
+    "remark-math": "https://esm.sh/remark-math@^6.0.0",
+    "rehype-katex": "https://esm.sh/rehype-katex@^7.0.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body dir="rtl">
+    <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('sw.js').then(reg => {
+            console.log('SW registered!', reg);
+          }).catch(err => {
+            console.log('SW registration failed:', err);
+          });
+        });
+      }
+    </script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>

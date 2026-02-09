@@ -1,0 +1,8 @@
+{
+  "name": "TunisIA Student Hub",
+  "description": "Premium Tunisian AI Platform featuring Chef Code, L-Akhas, and more. Optimized for Derja and Tunisian Academic paths.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

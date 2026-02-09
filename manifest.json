@@ -1,0 +1,21 @@
+{
+  "name": "TunisIA Student Hub",
+  "short_name": "TunisIA",
+  "description": "Multi-role AI Platform for Tunisian Students",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#E70013",
+  "icons": [
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Tunisia.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
